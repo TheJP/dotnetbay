@@ -29,7 +29,8 @@ The following products / tools are needed to contribute / fork.
 * NCrunch [http://www.ncrunch.net/](http://www.ncrunch.net/ http://www.ncrunch.net/)
 
 ## Authors
-* Michael Schnyder
+* Janis Peyer
+* Andreas Müller
 
 ## License
 Licensed under the MIT License
