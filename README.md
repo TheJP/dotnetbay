@@ -1,5 +1,5 @@
 # dotnetbay - A .NET Auction Solution 
-Master: [![Build status](https://ci.appveyor.com/api/projects/status/qp7ueees06ri8agu?svg=true)](https://ci.appveyor.com/project/michaelschnyder/fhnw-dotnetbay)
+Master: [![Build status](https://ci.appveyor.com/api/projects/status/github/thejp/dotnetbay?svg=true)](https://ci.appveyor.com/project/TheJP/dotnetbay)
 
 A bootstrap solution to build your own basic auction portal
 
@@ -10,7 +10,7 @@ With focus on the .NET-Stack, at least the following technologies should be adde
 
 * WPF / XAML UI
 * EntityFramework
-* ASP.NET MVC 4 UI 
+* ASP.NET MVC 5 UI 
 * ASP.NET WebApi
 * ASP.Net SignalR
 
@@ -29,7 +29,8 @@ The following products / tools are needed to contribute / fork.
 * NCrunch [http://www.ncrunch.net/](http://www.ncrunch.net/ http://www.ncrunch.net/)
 
 ## Authors
-* Michael Schnyder
+* Janis Peyer
+* Andreas Müller
 
 ## License
 Licensed under the MIT License

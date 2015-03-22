@@ -44,7 +44,7 @@ namespace DotNetBay.Data.FileStorage
 
                 if (this.data.Auctions.Any(a => a.Id == auction.Id))
                 {
-                    throw new ArgumentException("The auction is already stored");
+                    return auction;
                 }
 
                 var maxId = this.data.Auctions.Any() ? this.data.Auctions.Max(a => a.Id) : 0;
@@ -70,7 +70,7 @@ namespace DotNetBay.Data.FileStorage
 
                 if (this.data.Members.Any(m => m.UniqueId == member.UniqueId))
                 {
-                    throw new ArgumentException("A member with the same uniqueId already exists!");
+                    return member;
                 }
 
                 this.ThrowForInvalidReferences(member);
@@ -162,7 +162,6 @@ namespace DotNetBay.Data.FileStorage
                 var auction = this.data.Auctions.FirstOrDefault(a => a.Id == bid.Auction.Id);
                 auction.Bids.Add(bid);
 
-
                 // Reference back from bidder
                 var bidder = this.data.Members.FirstOrDefault(b => b.UniqueId == bid.Bidder.UniqueId);
                 if (bidder.Bids == null)
@@ -210,9 +209,14 @@ namespace DotNetBay.Data.FileStorage
 
         public virtual void SaveChanges()
         {
-            this.ThrowForInvalidReferences();
+            lock (this.syncRoot)
+            {
+                this.EnsureCompleteLoaded();
 
-            this.Save();
+                this.ThrowForInvalidReferences();
+
+                this.Save();
+            }
         }
 
         #endregion
